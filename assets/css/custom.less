@@ -14,12 +14,27 @@
 //  background-color: @btn-success-border;
 //  border-color: darken(@btn-success-border, 12%);
 //}
-html, body, .main-wrapper, .mainpanel{
+html, body, .main-wrapper, .mainpanel {
   height: 100%;
 }
+
 a:hover, a:focus {
   text-decoration: none;
 }
+
+::-webkit-scrollbar-track {
+  background-color: #F5F5F5
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999
+}
+
 //重写按钮样式
 .btn-success {
   color: #ffffff;
@@ -127,6 +142,7 @@ fieldset[disabled] .btn-success.focus {
     font-style: normal;
   }
 }
+
 .headermenu {
   .tp-icon {
     font-size: 14px;
@@ -168,10 +184,12 @@ fieldset[disabled] .btn-success.focus {
     }
   }
 }
+
 //panel
 .panel-success .panel-heading {
   background-color: #009bb6;
 }
+
 //table
 .table-success thead tr th {
   background-color: #009bb6;

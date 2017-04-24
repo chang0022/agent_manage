@@ -8,6 +8,16 @@ a:hover,
 a:focus {
   text-decoration: none;
 }
+::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
 .btn-success {
   color: #ffffff;
   background-color: #009bb6;
