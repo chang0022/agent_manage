@@ -1,3 +1,13 @@
+html,
+body,
+.main-wrapper,
+.mainpanel {
+  height: 100%;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
 .btn-success {
   color: #ffffff;
   background-color: #009bb6;
@@ -90,4 +100,42 @@ fieldset[disabled] .btn-success.focus {
 }
 .headermenu .tp-icon {
   font-size: 14px;
+}
+.inner-document {
+  background: #e4e7ea;
+}
+.inner-document .pageheader {
+  padding: 2px;
+}
+.inner-document .pageheader .fa {
+  border: none;
+  font-size: 12px;
+}
+.inner-document .pageheader h2 {
+  font-size: 12px;
+}
+.inner-document .panel-heading {
+  color: #fff;
+}
+.inner-document .panel-heading h2 {
+  margin: 0 0 20px 0;
+  line-height: 36px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 38px;
+  text-align: center;
+}
+.inner-document .panel-heading h4 {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+.inner-document .table-action a {
+  color: #009bb6;
+}
+.panel-success .panel-heading {
+  background-color: #009bb6;
+}
+.table-success thead tr th {
+  background-color: #009bb6;
 }

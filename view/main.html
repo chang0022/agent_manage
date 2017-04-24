@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="format-detection" content="telephone=no"/>
     <title>代理商后台管理</title>
-    <link rel="stylesheet" href="http://resali.huobanplus.com/cdn/bracket/css/style.default.css">
+    <link rel="stylesheet" href="../assets/css/style.default.css">
     <link rel="stylesheet" href="http://resali.huobanplus.com/cdn/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,7 +19,7 @@
     <![endif]-->
 </head>
 <body>
-<section>
+<section class="main-wrapper">
     <div class="leftpanel">
 
         <div class="logopanel">
@@ -63,26 +63,12 @@
         </div>
     </div>
     <div class="mainpanel">
-
         <div class="headerbar">
             <a class="menutoggle"><i class="fa fa-bars"></i></a>
             <div class="header-right">
                 <ul class="headermenu">
                     <li class="user-info">
                         <p>你好，<span>徐粗放</span><i>【超级管理员】</i></p>
-                        <!--<div class="btn-group">-->
-                            <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-                                <!--<img src="http://resali.huobanplus.com/cdn/bracket/images/photos/loggeduser.png"-->
-                                     <!--alt="avatar"/>-->
-                                <!--管理员-->
-                                <!--<span class="caret"></span>-->
-                            <!--</button>-->
-                            <!--<ul class="dropdown-menu dropdown-menu-usermenu pull-right">-->
-                                <!--<li><a href="/manage/logout"><i-->
-                                        <!--class="glyphicon glyphicon-log-out"></i> 注销</a>-->
-                                <!--</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
                     </li>
                     <li>
                         <div class="btn-group">
@@ -101,11 +87,10 @@
                     </li>
                 </ul>
             </div>
-
         </div>
 
-        <iframe id="content" name="content" allowfullscreen="allowfullscreen" width="100%" marginwidth="0"
-                marginheight="0" frameborder="0" scrolling="no" style="display: inline;">
+        <iframe id="content" name="content" allowfullscreen="allowfullscreen" width="100%" height="100%" marginwidth="0"
+                marginheight="0" frameborder="0" scrolling="auto" src="index.html">
         </iframe>
 
     </div>
