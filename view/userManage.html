@@ -23,7 +23,7 @@
 <body class="inner-document">
 <section>
     <div class="pageheader">
-        <h2><i class="fa fa-user"></i> 用户管理 <span>用户详情信息</span></h2>
+        <h2><i class="fa fa-user"></i> 用户管理 <span>全部用户详情信息</span></h2>
     </div>
     <div class="contentpanel">
         <div class="row">
@@ -34,69 +34,26 @@
     </div>
 </section>
 </body>
+<script type="text/template" id="selectToolbar">
+    <button type="button" class="btn btn-success btn-xs js-search">查询</button>
+    <input type="search" class="form-control input-sm js-searchName" placeholder="用户名称" name="userName" aria-controls="agentTable">
+    <input type="search" class="form-control input-sm js-searchPhone" placeholder="用户手机号" name="userPhone" aria-controls="agentTable">
+    <label>
+        <select class="form-control input-sm js-searchRank" name="userRank">
+            <!--此项为巧妙的select placeholder效果，thymeleaf 勿删-->
+            <option value=" " disabled selected class="hidden">级别</option>
+            <option value="1">会员</option>
+            <option value="2">经纪人</option>
+            <option value="3">经销商</option>
+        </select>
+    </label>
+</script>
 <script src="http://resali.huobanplus.com/cdn/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://resali.huobanplus.com/cdn/bootstrap/3.3.7/bootstrap.min.js"></script>
+<script src="http://resali.huobanplus.com/cdn/layer/3.0.3/layer.js"></script>
 <script src="../assets/js/jquery.dataTables.min.js"></script>
 <script src="../assets/js/dataTables.bootstrap.min.js"></script>
 <script src="../assets/js/dataTables.treeGrid.js"></script>
 <script src="../assets/js/dataTables.zh-CN.js"></script>
-<script>
-    $('#usersTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": '../mock/userData.json',
-        "ordering": false,
-//        "dom": "<'row'<'col-sm-12'f<'js-selectRank'>>>" +
-//        "<'row'<'col-sm-12'tr>>" +
-//        "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        "columns": [
-            {
-                "title": "#", "data": "id"
-            },
-            {
-                "title": "用户", "data": "name"
-            },
-            {
-                "title": "级别", "data": "rank"
-            },
-            {
-                "title": "推荐人数", "data": "recommend"
-            },
-            {
-                "title": "入会时间", "data": "join_time"
-            },
-            {
-                "title": "省", "data": "province"
-            },
-            {
-                "title": "市", "data": "city"
-            },
-            {
-                "title": "区 / 县", "data": "district"
-            },
-            {
-                "title": "详细地址", "data": "address"
-            },
-            {
-                "title": "手机号码", "data": "phone"
-            },
-            {
-                title: "操作",
-                className: 'table-action',
-                data: function () {
-                    return '<a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>';
-                }
-            }
-        ],
-        "treeGrid": {
-            "left": 20,
-            "expandIcon": '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
-            "collapseIcon": '<span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>'
-        },
-        "lengthMenu": [10, 15, 20],
-        "displayLength": 10
-    });
-
-//    $("div.js-selectRank").html($("#selectRank").html()).addClass('display-inline');
-</script>
+<script src="../assets/js/userManage.js"></script>
 </html>

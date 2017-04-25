@@ -34,10 +34,13 @@
     </div>
 </section>
 </body>
-<script type="text/template" id="selectRank">
+<script type="text/template" id="selectToolbar">
+    <button type="button" class="btn btn-success btn-xs js-search">查询</button>
+    <input type="search" class="form-control input-sm js-searchName" placeholder="代理商名称" name="agentName" aria-controls="agentTable">
     <label>
-        代理级别:
-        <select class="form-control input-sm">
+        <select class="form-control input-sm js-searchRank" name="agentRank">
+            <!--此项为巧妙的select placeholder效果，thymeleaf 勿删-->
+            <option value=" " disabled selected class="hidden">代理级别</option>
             <option value="1">一级代理</option>
             <option value="2">二级代理</option>
             <option value="3">三级代理</option>
@@ -46,62 +49,10 @@
 </script>
 <script src="http://resali.huobanplus.com/cdn/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://resali.huobanplus.com/cdn/bootstrap/3.3.7/bootstrap.min.js"></script>
+<script src="http://resali.huobanplus.com/cdn/layer/3.0.3/layer.js"></script>
 <script src="../assets/js/jquery.dataTables.min.js"></script>
 <script src="../assets/js/dataTables.bootstrap.min.js"></script>
 <script src="../assets/js/dataTables.treeGrid.js"></script>
 <script src="../assets/js/dataTables.zh-CN.js"></script>
-<script>
-    $('#agentTable').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": '../mock/agentData.json',
-        "ordering": false,
-        "dom": "<'row'<'col-sm-12'f<'js-selectRank'>>>" +
-                "<'row'<'col-sm-12'tr>>" +
-                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        "columns": [
-            {
-                title: '',
-                target: 0,
-                className: 'treegrid-control table-action',
-                data: function (item) {
-                    if (item.children) {
-                        return '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>';
-                    }
-                    return '';
-                }
-            },
-            {
-                "title": "级别", "data": "rank"
-            },
-            {
-                "title": "用户", "data": "name"
-            },
-            {
-                "title": "手机号", "data": "phone"
-            },
-            {
-                "title": "不知道是啥", "data": "idotno"
-            },
-            {
-                "title": "销售总额", "data": "total_sales"
-            },
-            {
-                title: "操作",
-                className: 'table-action',
-                data: function () {
-                    return '<a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>';
-                }
-            }
-        ],
-        "treeGrid": {
-            "left": 20,
-            "expandIcon": '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
-            "collapseIcon": '<span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>'
-        },
-        "lengthMenu": [10, 15, 20],
-        "displayLength": 10
-    });
-    $("div.js-selectRank").html($("#selectRank").html()).addClass('display-inline');
-</script>
+<script src="../assets/js/agentManage.js"></script>
 </html>

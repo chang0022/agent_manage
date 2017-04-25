@@ -4,6 +4,16 @@ body,
 .mainpanel {
   height: 100%;
 }
+.outer-document {
+  overflow: hidden;
+}
+.outer-document iframe {
+  display: block;
+}
+#content-main {
+  height: calc(100% - 50px);
+  overflow: hidden;
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -20,6 +30,17 @@ a:focus {
 }
 .display-inline {
   display: inline-block;
+}
+.total {
+  font-family: "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+.input-group-sm {
+  margin-top: 3px;
+}
+select.form-control {
+  padding: 8px 10px;
 }
 .btn-success {
   color: #ffffff;
@@ -116,6 +137,8 @@ fieldset[disabled] .btn-success.focus {
 }
 .inner-document {
   background: #e4e7ea;
+  height: auto;
+  padding-bottom: 60px;
 }
 .inner-document .pageheader {
   padding: 2px;
@@ -149,6 +172,12 @@ fieldset[disabled] .btn-success.focus {
 .panel-success .panel-heading {
   background-color: #009bb6;
 }
+.panel-default > .quote {
+  border-left: 5px solid #eee;
+}
+.panel-default > .quote-success {
+  border-left-color: #009bb6;
+}
 .table-success thead tr th {
   background-color: #009bb6;
 }
@@ -161,11 +190,44 @@ fieldset[disabled] .btn-success.focus {
   background-color: #009bb6;
   border-color: #009bb6;
 }
-.input-sm {
+select.input-sm {
   padding: 5px 10px;
 }
-#agentTable_wrapper.dataTables_wrapper div.dataTables_filter {
+#agentTable_wrapper.dataTables_wrapper div.dataTables_filter,
+#usersTable_wrapper.dataTables_wrapper div.dataTables_filter {
   margin-right: 10px;
   text-align: left;
   display: inline-block;
+}
+.js-selectRank,
+.js-inputPhone {
+  display: inline-block;
+  margin-right: 10px;
+}
+.js-search {
+  margin-top: 3px;
+}
+.rdio-success,
+.ckbox-success {
+  text-align: left;
+}
+.rdio-success input[type="radio"]:checked + label:before {
+  border-color: #009bb6;
+}
+.rdio-success input[type="radio"]:checked + label::after {
+  background-color: #009bb6;
+}
+.ckbox-success label {
+  font-size: 12px;
+}
+.ckbox-success input[type="checkbox"]:checked + label:before {
+  border-color: #009bb6;
+  background-color: #009bb6;
+}
+input[type=radio],
+input[type=checkbox] {
+  margin: 2px 0 0;
+}
+.col-sm-25 {
+  width: 40%;
 }

@@ -17,7 +17,16 @@
 html, body, .main-wrapper, .mainpanel {
   height: 100%;
 }
-
+.outer-document {
+  overflow: hidden;
+}
+.outer-document iframe {
+  display: block;
+}
+#content-main {
+  height: calc(~"100% - 50px");
+  overflow: hidden;
+}
 a:hover, a:focus {
   text-decoration: none;
 }
@@ -34,9 +43,23 @@ a:hover, a:focus {
 ::-webkit-scrollbar-thumb {
   background-color: #999
 }
+
 .display-inline {
   display: inline-block;
 }
+.total {
+  font-family: "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+.input-group-sm {
+  margin-top: 3px;
+}
+//select
+select.form-control {
+  padding: 8px 10px;
+}
+
 //重写按钮样式
 .btn-success {
   color: #ffffff;
@@ -154,6 +177,8 @@ fieldset[disabled] .btn-success.focus {
 //inner-document
 .inner-document {
   background: #e4e7ea;
+  height: auto;
+  padding-bottom: 60px;
   .pageheader {
     padding: 2px;
     .fa {
@@ -191,6 +216,12 @@ fieldset[disabled] .btn-success.focus {
 .panel-success .panel-heading {
   background-color: #009bb6;
 }
+.panel-default > .quote {
+  border-left: 5px solid #eee;
+}
+.panel-default > .quote-success {
+  border-left-color: #009bb6;
+}
 
 //table
 .table-success thead tr th {
@@ -208,13 +239,51 @@ fieldset[disabled] .btn-success.focus {
   background-color: #009bb6;
   border-color: #009bb6;
 }
+
 // input
-.input-sm {
+select.input-sm {
   padding: 5px 10px;
 }
+
 // dataTables
-#agentTable_wrapper.dataTables_wrapper div.dataTables_filter {
+#agentTable_wrapper.dataTables_wrapper div.dataTables_filter,
+#usersTable_wrapper.dataTables_wrapper div.dataTables_filter {
   margin-right: 10px;
   text-align: left;
   display: inline-block;
+}
+
+.js-selectRank, .js-inputPhone {
+  display: inline-block;
+  margin-right: 10px;
+}
+.js-search {
+  margin-top: 3px;
+}
+
+//radio
+.rdio-success, .ckbox-success{
+  text-align: left;
+}
+.rdio-success input[type="radio"]:checked + label:before {
+  border-color: #009bb6;
+}
+
+.rdio-success input[type="radio"]:checked + label::after {
+  background-color: #009bb6;
+}
+//checkbox
+.ckbox-success label {
+  font-size: 12px;
+}
+.ckbox-success input[type="checkbox"]:checked + label:before {
+  border-color: #009bb6;
+  background-color: #009bb6;
+}
+
+input[type=radio], input[type=checkbox] {
+  margin: 2px 0 0;
+}
+.col-sm-25 {
+  width: 40%;
 }
