@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>用户管理 - 代理商后台管理</title>
+    <link rel="stylesheet" href="http://resali.huobanplus.com/cdn/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.default.css">
+    <link rel="stylesheet" href="http://resali.huobanplus.com/cdn/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://resali.huobanplus.com/cdn/bracket/js/html5shiv.js"></script>
+    <script src="http://resali.huobanplus.com/cdn/bracket/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="inner-document">
+<section>
+    <div class="pageheader">
+        <h2><i class="fa fa-user"></i> 用户管理 <span>用户详情信息</span></h2>
+    </div>
+    <div class="contentpanel">
+        <div class="row">
+            <div class="table-responsive">
+                <table id="usersTable" class="table table-hover table-success" cellspacing="0" width="100%"></table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="http://resali.huobanplus.com/cdn/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://resali.huobanplus.com/cdn/bootstrap/3.3.7/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/dataTables.bootstrap.min.js"></script>
+<script src="../assets/js/dataTables.treeGrid.js"></script>
+<script src="../assets/js/dataTables.zh-CN.js"></script>
+<script>
+    $('#usersTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": '../mock/userData.json',
+        "ordering": false,
+//        "dom": "<'row'<'col-sm-12'f<'js-selectRank'>>>" +
+//        "<'row'<'col-sm-12'tr>>" +
+//        "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        "columns": [
+            {
+                "title": "#", "data": "id"
+            },
+            {
+                "title": "用户", "data": "name"
+            },
+            {
+                "title": "级别", "data": "rank"
+            },
+            {
+                "title": "推荐人数", "data": "recommend"
+            },
+            {
+                "title": "入会时间", "data": "join_time"
+            },
+            {
+                "title": "省", "data": "province"
+            },
+            {
+                "title": "市", "data": "city"
+            },
+            {
+                "title": "区 / 县", "data": "district"
+            },
+            {
+                "title": "详细地址", "data": "address"
+            },
+            {
+                "title": "手机号码", "data": "phone"
+            },
+            {
+                title: "操作",
+                className: 'table-action',
+                data: function () {
+                    return '<a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>';
+                }
+            }
+        ],
+        "treeGrid": {
+            "left": 20,
+            "expandIcon": '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
+            "collapseIcon": '<span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>'
+        },
+        "lengthMenu": [10, 15, 20],
+        "displayLength": 10
+    });
+
+//    $("div.js-selectRank").html($("#selectRank").html()).addClass('display-inline');
+</script>
+</html>

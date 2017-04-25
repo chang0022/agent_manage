@@ -18,6 +18,9 @@ a:focus {
 ::-webkit-scrollbar-thumb {
   background-color: #999;
 }
+.display-inline {
+  display: inline-block;
+}
 .btn-success {
   color: #ffffff;
   background-color: #009bb6;
@@ -148,4 +151,21 @@ fieldset[disabled] .btn-success.focus {
 }
 .table-success thead tr th {
   background-color: #009bb6;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #009bb6;
+  border-color: #009bb6;
+}
+.input-sm {
+  padding: 5px 10px;
+}
+#agentTable_wrapper.dataTables_wrapper div.dataTables_filter {
+  margin-right: 10px;
+  text-align: left;
+  display: inline-block;
 }
