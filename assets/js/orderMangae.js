@@ -1,14 +1,14 @@
 /**
- * Created by Chang on 2017/4/25.
+ * Created by Neo on 2017/4/26.
  */
 $(function () {
     "use strict";
 
-    var table = $('#agentTable').DataTable({
+    var table = $('#orderTable').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "../mock/agentData.json",
+            "url": "../mock/orderData.json",
             "data": function (d) {
                 return $.extend({}, d, extendData());
             }
@@ -19,30 +19,43 @@ $(function () {
         "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         "columns": [
             {
-                title: '',
-                target: 0,
-                className: 'treegrid-control table-action',
-                data: function (item) {
-                    if (item.children) {
-                        return '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>';
-                    }
-                    return '';
-                }
+                "title": "#", "data": "id"
             },
             {
-                "title": "级别", "data": "rank"
+                "title": "订单号", "data": "order_id"
             },
             {
-                "title": "用户", "data": "name"
+                "title": "购买用户", "data": "order_user"
             },
             {
                 "title": "手机号", "data": "phone"
             },
             {
-                "title": "不知道是啥", "data": "idotno"
+                "title": "商品品类", "data": "category"
             },
             {
-                "title": "销售总额", "data": "total_sales"
+                "title": "商品型号", "data": "type"
+            },
+            {
+                "title": "数量", "data": "amount"
+            },
+            {
+                "title": "充值套餐", "data": "package"
+            },
+            {
+                "title": "支付方式", "data": "method"
+            },
+            {
+                "title": "订单总金额", "data": "total"
+            },
+            {
+                "title": "安装地址", "data": "address"
+            },
+            {
+                "title": "状态", "data": "status"
+            },
+            {
+                "title": "下单时间", "data": "order_time"
             },
             {
                 title: "操作",
@@ -52,25 +65,26 @@ $(function () {
                 }
             }
         ],
-        "treeGrid": {
-            "left": 20,
-            "expandIcon": '<span><i class="fa fa-chevron-right" aria-hidden="true"></i></span>',
-            "collapseIcon": '<span><i class="fa fa-chevron-down" aria-hidden="true"></i></span>'
-        },
         "lengthMenu": [10, 15, 20],
         "displayLength": 10,
         "drawCallback": function () {
             clearSearchValue();
         }
     });
-    $("div.js-selectToolbar").html($("#selectToolbar").html());
+
 
     $(document).on('click', '.js-search', function () {
+        // 点击搜索方法。但如果数据为空，是否阻止
         table.ajax.reload();
     }).on('click', '.js-checkUser', function () {
-        $('#content', parent.document).attr('src', 'agentDetail.html');
+        // TODO
+        // 需要获取一些参数供详情跳转
     });
-
+    $('.js-orderStatus').find('a').click(function () {
+        var status = $(this).attr('data-status');
+        console.log(status);
+    });
+    // 添加额外的参数
     function extendData() {
         var formItem = $('.js-selectToolbar').find('.form-control');
         if (formItem.length === 0)  return {};
@@ -82,6 +96,7 @@ $(function () {
             var v = t.val();
             if (v) data[n] = v;
         });
+        console.log(data);
         return data;
     }
 

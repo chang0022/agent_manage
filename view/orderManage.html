@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap-datepicker3.min.css">
     <link rel="stylesheet" href="../assets/css/style.default.css">
     <link rel="stylesheet" href="http://resali.huobanplus.com/cdn/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,7 +48,7 @@
                             </select>
                         </label>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control hasDatepicker js-js-orderDate" placeholder="mm/dd/yyyy" id="datepicker" name="orderDate" aria-controls="orderTable">
+                            <input type="text" class="form-control hasDatepicker js-js-orderDate" placeholder="下单日期" id="datepicker" name="orderDate" aria-controls="orderTable">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                         </div>
                     </div>
@@ -56,126 +57,38 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <ul class="nav nav-tabs nav-dark">
+                <ul class="nav nav-tabs nav-dark js-orderStatus">
                     <li class="active">
-                        <a href="#allOrder" data-toggle="tab">
+                        <a href="#orderDatagrid" data-toggle="tab" data-status="0">
                             <strong>全部</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="#payment" data-toggle="tab">
+                        <a href="#orderDatagrid" data-toggle="tab" data-status="1">
                             <strong>待付款</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="#deliver" data-toggle="tab">
+                        <a href="#orderDatagrid" data-toggle="tab" data-status="2">
                             <strong>待发货</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="#install" data-toggle="tab">
+                        <a href="#orderDatagrid" data-toggle="tab" data-status="3">
                             <strong>待安装</strong>
                         </a>
                     </li>
                     <li>
-                        <a href="#installed" data-toggle="tab">
+                        <a href="#orderDatagrid" data-toggle="tab" data-status="4">
                             <strong>已安装</strong>
                         </a>
                     </li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane active" id="allOrder">
+                    <div class="tab-pane active" id="orderDatagrid">
                         <div class="table-responsive">
-                            <table class="table table-hover table-success">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>订单号</th>
-                                    <th>代理商</th>
-                                    <th>商品型号</th>
-                                    <th>退货内容</th>
-                                    <th>订单总额</th>
-                                    <th>套餐</th>
-                                    <th>活动码</th>
-                                    <th>购买时间</th>
-                                    <th>违约金</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>20170418-a1</td>
-                                    <td>李菲菲</td>
-                                    <td>滤芯 reg fdhd</td>
-                                    <td>未安装退货</td>
-                                    <td>4567</td>
-                                    <td>2年收费</td>
-                                    <td></td>
-                                    <td>2017-09-09</td>
-                                    <td>20%</td>
-                                    <td>待同意</td>
-                                    <td class="table-action">
-                                        <a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>20170418-a1</td>
-                                    <td>李菲菲</td>
-                                    <td>滤芯 reg fdhd</td>
-                                    <td>未安装退货</td>
-                                    <td>4567</td>
-                                    <td>2年收费</td>
-                                    <td></td>
-                                    <td>2017-09-09</td>
-                                    <td>20%</td>
-                                    <td>待同意</td>
-                                    <td class="table-action">
-                                        <a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>20170418-a1</td>
-                                    <td>李菲菲</td>
-                                    <td>滤芯 reg fdhd</td>
-                                    <td>未安装退货</td>
-                                    <td>4567</td>
-                                    <td>2年收费</td>
-                                    <td></td>
-                                    <td>2017-09-09</td>
-                                    <td>20%</td>
-                                    <td>待同意</td>
-                                    <td class="table-action">
-                                        <a href="javascript:;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp;查看</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <table id="orderTable" class="table table-hover table-success" cellspacing="0" width="100%"></table>
                         </div>
-                    </div>
-                    <div class="tab-pane" id="payment">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
-                                <button class="btn btn-primary mr5">Follow Me</button>
-                                <button class="btn btn-white">Send Message</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="deliver">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat</p>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
-                    </div>
-                    <div class="tab-pane" id="install">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat</p>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
-                    </div>
-                    <div class="tab-pane" id="installed">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat</p>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
                     </div>
                 </div>
             </div>
@@ -187,5 +100,9 @@
 <script src="http://resali.huobanplus.com/cdn/bootstrap/3.3.7/bootstrap.min.js"></script>
 <script src="../assets/js/bootstrap-datepicker.min.js"></script>
 <script src="../assets/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/dataTables.bootstrap.min.js"></script>
+<script src="../assets/js/dataTables.zh-CN.js"></script>
+<script src="../assets/js/orderMangae.js"></script>
 <script src="../assets/js/main.js"></script>
 </html>
