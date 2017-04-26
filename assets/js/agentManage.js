@@ -7,7 +7,12 @@ $(function () {
     var table = $('#agentTable').DataTable({
         "processing": true,
         "serverSide": true,
-        "ajax": '../mock/agentData.json',
+        "ajax": {
+            "url": "../mock/agentData.json",
+            "data": function (d) {
+                return $.extend({}, d, extendData());
+            }
+        },
         "ordering": false,
         "dom": "<'row'<'col-sm-12'<'js-selectToolbar'>>>" +
         "<'row'<'col-sm-12'tr>>" +
@@ -61,22 +66,23 @@ $(function () {
     $("div.js-selectToolbar").html($("#selectToolbar").html());
 
     $(document).on('click', '.js-search', function () {
-        searchData();
+        table.ajax.reload();
     }).on('click', '.js-checkUser', function () {
         $('#content', parent.document).attr('src', 'agentDetail.html');
     });
 
-    function searchData() {
+    function extendData() {
+        var formItem = $('.js-selectToolbar').find('.form-control');
+        if (formItem.length === 0)  return {};
         var data = {};
-        var name = $(".js-searchName");
-        var rank = $(".js-searchRank");
-        if (!name.val() && !rank.val()) {
-            layer.msg('搜索条件不能为空', {offset: ['200px']})
-            return false;
-        }
-        data[name.attr('name')] = name.val();
-        data[rank.attr('name')] = rank.val();
-        table.search(JSON.stringify(data)).draw();
+
+        formItem.each(function () {
+            var t = $(this);
+            var n = t.attr('name');
+            var v = t.val();
+            if(v) data[n] = v;
+        });
+        return data;
     }
 
     function clearSearchValue() {
